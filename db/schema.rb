@@ -15,18 +15,18 @@ ActiveRecord::Schema.define(version: 20170523052146) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "domains_tables", force: :cascade do |t|
+  create_table "domains", force: :cascade do |t|
     t.string "host"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "screenshots_tables", force: :cascade do |t|
+  create_table "screenshots", force: :cascade do |t|
     t.bigint "domain_id"
-    t.string "screenshot"
+    t.string "filename"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["domain_id"], name: "index_screenshots_tables_on_domain_id"
+    t.index ["domain_id"], name: "index_screenshots_on_domain_id"
   end
 
 end

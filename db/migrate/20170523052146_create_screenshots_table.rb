@@ -1,8 +1,8 @@
 class CreateScreenshotsTable < ActiveRecord::Migration[5.1]
   def change
-    create_table :screenshots_tables do |t|
+    create_table :screenshots do |t|
       t.references :domain
-      t.string :screenshot
+      t.string :filename
       t.timestamps
     end
   end
