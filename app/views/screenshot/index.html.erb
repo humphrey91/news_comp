@@ -5,9 +5,10 @@
     <title>News Comp</title>
   </head>
   <body>
-    <%= form_for :screenshot do |f| %>
+    <%= form_for :screenshot, method: :get do |f| %>
      <div class="input-group date">
-       <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+      <%= f.text_field :date, :class => "form-control datepicker"%>
      </div>
      <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>
