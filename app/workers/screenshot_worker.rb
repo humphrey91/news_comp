@@ -9,10 +9,11 @@ class ScreenshotWorker
       upload_shot(domain)
       clean_up(domain)
     end
+    
   end
 
   def take_screenshot(domain)
-    system "cd ~/Sites/news_comp/app/assets/images; google-chrome-beta --headless --disable-gpu --screenshot --window-size=412,732 https://www.#{domain.host}"
+    system "cd ~/Sites/news_comp/app/assets/images; google-chrome-beta --headless --user-agent='Mozilla/5.0 (Linux; Android 5.1.1; SM-G928X Build/LMY47X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile Safari/537.36' --disable-gpu --screenshot --hide-scrollbars --window-size=412,732 http://#{domain.host}"
   end
 
   def rename_file(domain)

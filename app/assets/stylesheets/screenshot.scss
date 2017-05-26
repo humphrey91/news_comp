@@ -1,4 +1,45 @@
 // Place all the styles related to the Screenshot controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.align {
+  text-align: center;
+}
+
+.search-bar {
+  padding: 40px 0;
+}
+
+.shot-img {
+
+  border: 2px solid #eee;
+  margin: 0 0 20px 0;
+}
+
+.jumbo-size {
+  height: 150px;
+  padding: 20px;
+}
+
+.custom-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.align-box {
+  text-align: center;
+  padding: 30px;
+  background-color: #eee;
+
+}
+
+.shot-title {
+  font-size: 2em;
+  border: 2px solid #eee;
+  width: 416px;
+  margin: 0 auto;
+  background-color: white;
+}

@@ -1,25 +1,30 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>News Comp</title>
-  </head>
-  <body>
-    <%= form_for :screenshot, method: :get do |f| %>
-     <div class="input-group date">
-      <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
-      <%= f.text_field :date, :class => "form-control datepicker"%>
-     </div>
-     <%= f.submit "Submit", class: "btn btn-primary" %>
-    <% end %>
-    <div class="container">
-      <div class="row">
-        <% @screenshots.each do |shot| %>
-          <div class="col-md-6">
-            <img src="<%= shot.filename.url %>" alt="">
-          </div>
-        <% end %>
+
+<div class="jumbotron align jumbo-size">
+  <h1>Media Mobile News Comparison</h1>
+</div>
+<div class="form-inline container">
+  <div class="align search-bar">
+    <%= form_for :screenshot, method: :get, :validate=>true do |f| %>
+      <div class="input-group datepicker date">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+        <%= f.text_field :date, :class => "form-control", :value => @date%>
       </div>
-    </div>
-  </body>
-</html>
+      <%= f.select :domain_names, options_from_collection_for_select(@domains, "id", "host", @doms), {:include_hidden => false}, { :class => 'js-example-basic-multiple form-control', :multiple => 'multiple', :tags => 'true' } %>
+      <!-- <%= f.select :domain_name2, options_from_collection_for_select(@domains, "id", "host", @dom2), {:include_blank => true}, { :class => 'form-control'} %> -->
+      <%= f.submit "Submit", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
+<div class="custom-container">
+  <div class="row">
+    <% @screenshots.each do |shot|  %>
+       <div class="col-xs-12 col-md-<%= col_size %>">
+
+         <div class="align-box">
+          <h1 class="shot-title"><a href="<%= "https://www.#{shot.domain.host}" %> "> <%= shot.domain.host %> </a></h1>
+          <img src="<%= shot.filename.url %>" alt="" class="shot-img">
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

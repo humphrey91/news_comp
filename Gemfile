@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 gem 'carrierwave'
+
 gem 'bootstrap-sass'
 gem 'bootstrap-datepicker-rails'
 # Use Capistrano for deployment
@@ -39,6 +40,9 @@ gem 'bootstrap-datepicker-rails'
 gem 'fog-aws'
 gem 'figaro'
 gem 'sidekiq'
+gem "sidekiq-cron", "~> 0.4.0"
+gem "mini_magick"
+gem "select2-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

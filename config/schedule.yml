@@ -1,0 +1,5 @@
+
+
+Screenshot_job:
+  cron: "10 0 * * *"
+  class: "ScreenshotWorker"
