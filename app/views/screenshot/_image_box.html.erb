@@ -1,0 +1,12 @@
+<div class="custom-container">
+  <div class="row">
+    <% @screenshots.each do |shot|  %>
+       <div class="col-sm-12 col-md-<%= col_size_md %> col-lg-<%= col_size_md %> col-xl-<%= col_size_xl %>">
+         <div class="align-box">
+          <h1 class="shot-title"><a href="<%= "https://www.#{shot.domain.host}" %> "> <%= shot.domain.host %> </a></h1>
+          <img src="<%= shot.filename.url %>" alt="" class="shot-img">
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

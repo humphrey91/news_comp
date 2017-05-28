@@ -1,0 +1,16 @@
+<div class="form-inline container">
+  <div class="align search-bar">
+    <%= form_for :screenshot, method: :get, :validate=>true do |f| %>
+    <div class="custom-container2">
+      <%= f.select :domain_names, options_from_collection_for_select(@domains, "id", "host", @doms), {:include_hidden => false}, { :class => 'js-example-basic-multiple form-control', :multiple => 'multiple', :tags => 'true' } %>
+      <div class="date-form">
+      <div class=" input-group datepicker date date-btn date-pick">
+        <span class="input-group-addon btn-fix"><i class="glyphicon glyphicon-th "></i></span>
+        <%= f.text_field :date, :class => "form-control ", :value => @date%>
+      </div>
+      <%= f.submit "Submit", class: "btn btn-sample date-btn date-submit" %>
+    </div>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -5,11 +5,12 @@ class ScreenshotWorker
     domains = Domain.all
     domains.each do |domain|
       take_screenshot(domain)
+      resize_img
       rename_file(domain)
       upload_shot(domain)
       clean_up(domain)
     end
-    
+
   end
 
   def take_screenshot(domain)
@@ -17,19 +18,22 @@ class ScreenshotWorker
   end
 
   def rename_file(domain)
-    system "cd ~/Sites/news_comp/app/assets/images; mv screenshot.png #{domain.host}#{Date.today}.png"
+    system "cd ~/Sites/news_comp/app/assets/images; mv screenshot.jpg #{domain.host}#{Date.today}.jpg"
   end
 
   def upload_shot(domain)
     screenshot = Screenshot.new
-    src = File.join(Rails.root, 'app', 'assets', 'images', domain.host + Date.today.to_s + ".png")
+    src = File.join(Rails.root, 'app', 'assets', 'images', domain.host + Date.today.to_s + ".jpg")
     screenshot.filename = File.new(src)
     screenshot.domain_id = domain.id
     screenshot.save
   end
 
   def clean_up(domain)
-    system "cd ~/Sites/news_comp/app/assets/images; rm #{domain.host}#{Date.today}.png"
+    system "cd ~/Sites/news_comp/app/assets/images; rm #{domain.host}#{Date.today}.jpg; rm screenshot.png "
   end
 
+  def resize_img
+    system "cd ~/Sites/news_comp/app/assets/images; convert screenshot.png -quality 40 screenshot.jpg"
+  end
 end

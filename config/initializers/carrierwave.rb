@@ -11,6 +11,7 @@ CarrierWave.configure do |config|
   config.fog_directory  = 'newscomp'                          # required
   config.fog_public     = false                                        # optional, defaults to true
   config.fog_attributes = { cache_control: "public, max-age=#{365.day.to_i}" } # optional, defaults to {}
+  config.asset_host = "https://d354n76xflvbk1.cloudfront.net"
 end
 
 
@@ -22,17 +23,5 @@ if Rails.env.test? or Rails.env.cucumber?
 else
   CarrierWave.configure do |config|
     config.storage = :fog
-  end
-end
-
-module CarrierWave
-  module MiniMagick
-    def quality(percentage)
-      manipulate! do |img|
-        img.quality(percentage.to_s)
-        img = yield(img) if block_given?
-        img
-      end
-    end
   end
 end

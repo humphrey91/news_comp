@@ -5,7 +5,7 @@
 @import "bootstrap";
 
 body {
-  background-color:#51858C;
+  background-color:#324C51;
 }
 .align {
   text-align: center;
@@ -22,7 +22,7 @@ body {
 .jumbo-size {
   height: 150px;
   padding: 20px;
-  background-color: #40666B;
+  background-color: #0D1F22;
   color: #E8E8E8;
 }
 
@@ -44,7 +44,7 @@ body {
 
 .align-box {
   text-align: center;
-  background-color: #006775;
+  background-color: #253B3F;
   padding-top: 20px;
   margin: 20px auto;
   width: 446px;
@@ -69,59 +69,65 @@ body {
 
 }
 
-.btn-custom {
-  color: #13618A;
-  background-color: #E8E8E8;
-  border-color: #211D1C;
+.btn-sample {
+  color: #E8E8E8;
+  background-color: #2F6872;
+  border-color: #064540;
 }
 
-.btn-custom:hover,
-.btn-custom:focus,
-.btn-custom:active,
-.btn-custom.active,
-.open .dropdown-toggle.btn-custom {
-  color: #13618A;
-  background-color: #CFCFCF;
-  border-color: #211D1C;
+.btn-sample:hover,
+.btn-sample:focus,
+.btn-sample:active,
+.btn-sample.active,
+.open .dropdown-toggle.btn-sample {
+  color: #E8E8E8;
+  background-color: #57A4B2;
+  border-color: #064540;
 }
 
-.btn-custom:active,
-.btn-custom.active,
-.open .dropdown-toggle.btn-custom {
+.btn-sample:active,
+.btn-sample.active,
+.open .dropdown-toggle.btn-sample {
   background-image: none;
 }
 
-.btn-custom.disabled,
-.btn-custom[disabled],
-fieldset[disabled] .btn-custom,
-.btn-custom.disabled:hover,
-.btn-custom[disabled]:hover,
-fieldset[disabled] .btn-custom:hover,
-.btn-custom.disabled:focus,
-.btn-custom[disabled]:focus,
-fieldset[disabled] .btn-custom:focus,
-.btn-custom.disabled:active,
-.btn-custom[disabled]:active,
-fieldset[disabled] .btn-custom:active,
-.btn-custom.disabled.active,
-.btn-custom[disabled].active,
-fieldset[disabled] .btn-custom.active {
+.btn-sample.disabled,
+.btn-sample[disabled],
+fieldset[disabled] .btn-sample,
+.btn-sample.disabled:hover,
+.btn-sample[disabled]:hover,
+fieldset[disabled] .btn-sample:hover,
+.btn-sample.disabled:focus,
+.btn-sample[disabled]:focus,
+fieldset[disabled] .btn-sample:focus,
+.btn-sample.disabled:active,
+.btn-sample[disabled]:active,
+fieldset[disabled] .btn-sample:active,
+.btn-sample.disabled.active,
+.btn-sample[disabled].active,
+fieldset[disabled] .btn-sample.active {
+  background-color: #2F6872;
+  border-color: #064540;
+}
+
+.btn-sample .badge {
+  color: #2F6872;
   background-color: #E8E8E8;
-  border-color: #211D1C;
-}
-
-.btn-custom .badge {
-  color: #E8E8E8;
-  background-color: #13618A;
 }
 
 
-@media screen and (min-width: 1550px) {
+@media screen and (min-width: 1650px) {
   .col-xl-4 {
     width: 33.3%;
   }
   .custom-container {
-    width: 90%;
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1550px) and (max-width: 1649px) {
+  .custom-container {
+    width: 60%;
   }
 }
 
@@ -165,6 +171,14 @@ fieldset[disabled] .btn-custom.active {
     font-size: 53px;
     margin-top: 5px;
     margin-bottom: 10px;
+  }
+
+}
+
+@media screen and (max-width: 520px) {
+  #main-title {
+    font-size: 38px;
+
   }
 
 }

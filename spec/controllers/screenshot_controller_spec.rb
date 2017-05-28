@@ -9,4 +9,6 @@ RSpec.describe ScreenshotController, type: :controller do
     end
   end
 
+  
+
 end

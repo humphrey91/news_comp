@@ -1,35 +1,3 @@
-
-<div class="jumbotron align jumbo-size">
-  <h1 id="main-title">Media Mobile News Comparison</h1>
-</div>
-<div class="form-inline container">
-  <div class="align search-bar">
-    <%= form_for :screenshot, method: :get, :validate=>true do |f| %>
-    <div class="custom-container2">
-      <%= f.select :domain_names, options_from_collection_for_select(@domains, "id", "host", @doms), {:include_hidden => false}, { :class => 'js-example-basic-multiple form-control', :multiple => 'multiple', :tags => 'true' } %>
-      <div class="date-form">
-      <div class=" input-group datepicker date date-btn date-pick">
-
-        <span class="input-group-addon btn-fix"><i class="glyphicon glyphicon-th "></i></span>
-        <%= f.text_field :date, :class => "form-control ", :value => @date%>
-
-      </div>
-      <%= f.submit "Submit", class: "btn btn-custom date-btn date-submit" %>
-    </div>
-    </div>
-    <% end %>
-  </div>
-</div>
-<div class="custom-container">
-  <div class="row">
-    <% @screenshots.each do |shot|  %>
-       <div class="col-sm-12 col-md-6 col-lg-6 col-xl-<%= col_size %>">
-
-         <div class="align-box">
-          <h1 class="shot-title"><a href="<%= "https://www.#{shot.domain.host}" %> "> <%= shot.domain.host %> </a></h1>
-          <img src="<%= shot.filename.url %>" alt="" class="shot-img">
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
+<%= render 'screenshot/title' %>
+<%= render 'screenshot/query_form' %>
+<%= render 'screenshot/image_box' %>
