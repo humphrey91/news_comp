@@ -3,7 +3,7 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready(function(){
   $('.datepicker').datepicker({
-    startDate: "05/24/2017",
+    startDate: "05/28/2017",
     endDate: "today",
     autoclose:true,
     todayHighlight: true
