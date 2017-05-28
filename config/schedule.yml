@@ -1,5 +1,5 @@
 
 
 Screenshot_job:
-  cron: "45 16 * * *"
+  cron: "05 0 * * *"
   class: "ScreenshotWorker"
