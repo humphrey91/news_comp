@@ -14,26 +14,26 @@ class ScreenshotWorker
   end
 
   def take_screenshot(domain)
-    system "cd ~/Sites/news_comp/app/assets/images; google-chrome-beta --headless --user-agent='Mozilla/5.0 (Linux; Android 5.1.1; SM-G928X Build/LMY47X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile Safari/537.36' --disable-gpu --screenshot --hide-scrollbars --window-size=412,732 http://#{domain.host}"
+    system "google-chrome-beta --headless --user-agent='Mozilla/5.0 (Linux; Android 5.1.1; SM-G928X Build/LMY47X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile Safari/537.36' --disable-gpu --screenshot --hide-scrollbars --window-size=412,732 http://#{domain.host}"
   end
 
   def rename_file(domain)
-    system "cd ~/Sites/news_comp/app/assets/images; mv screenshot.jpg #{domain.host}#{Date.today}.jpg"
+    system "mv screenshot.jpg #{domain.host}#{Date.today}.jpg"
   end
 
   def upload_shot(domain)
     screenshot = Screenshot.new
-    src = File.join(Rails.root, 'app', 'assets', 'images', domain.host + Date.today.to_s + ".jpg")
+    src = File.join(domain.host + Date.today.to_s + ".jpg")
     screenshot.filename = File.new(src)
     screenshot.domain_id = domain.id
     screenshot.save
   end
 
   def clean_up(domain)
-    system "cd ~/Sites/news_comp/app/assets/images; rm #{domain.host}#{Date.today}.jpg; rm screenshot.png "
+    system "rm #{domain.host}#{Date.today}.jpg; rm screenshot.png "
   end
 
   def resize_img
-    system "cd ~/Sites/news_comp/app/assets/images; convert screenshot.png -quality 40 screenshot.jpg"
+    system "convert screenshot.png -quality 40 screenshot.jpg"
   end
 end
