@@ -2,4 +2,5 @@
 
 Screenshot_job:
   cron: "*/5 * * * *"
-  class: "ScreenshotWorker"
+  queue: default
+  class: ScreenshotWorker
