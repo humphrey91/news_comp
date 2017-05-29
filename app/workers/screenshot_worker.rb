@@ -37,5 +37,5 @@ class ScreenshotWorker
     system "convert screenshot.png -quality 40 screenshot.jpg"
   end
 
-  ScreenshotWorker.new.perform
+  
 end
