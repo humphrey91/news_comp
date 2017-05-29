@@ -14,8 +14,7 @@ class ScreenshotWorker
   end
 
   def take_screenshot(domain)
-    system "google-chrome --no-sandbox --user-agent='Mozilla/5.0 (Linux; Android 5.1.1; SM-G928X Build/LMY47X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile Safari/537.36' --screenshot --hide-scrollbars --window-size=412,732 http://#{domain.host}"
-    
+    system "google-chrome-beta --no-sandbox --screenshot --hide-scrollbars --window-size=412,732 http://#{domain.host}"
   end
 
   def rename_file(domain)
