@@ -15,7 +15,6 @@ class ScreenshotWorker
 
   def take_screenshot(domain)
     system "cd /tmp/assets/images/; google-chrome --headless --user-agent='Mozilla/5.0 (Linux; Android 5.1.1; SM-G928X Build/LMY47X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile Safari/537.36' --disable-gpu --screenshot --hide-scrollbars --window-size=412,732 http://#{domain.host}"
-  
   end
 
   def rename_file(domain)
