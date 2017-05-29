@@ -1,23 +1,26 @@
-def configure_cron
-  rails_root = File.dirname(__FILE__) + '/../..'
-  schedule_file = rails_root + "/config/schedule.yml"
-  if File.exists?(schedule_file)
-    sidekiq_cron = YAML.load_file(schedule_file)
-    Sidekiq::Cron::Job.load_from_hash sidekiq_cron[Rails.env]
+
+redis_url = REDIS_URL || 'redis://localhost:6379/0'
+
+Sidekiq.configure_server do |config|
+
+# Rails.logger = Sidekiq.logger
+
+  config.redis = { url: redis_url, network_timeout: 5 }
+
+
+  if Rails.env.production?
+    schedule_file = "config/schedule.yml"
   end
+
+  if File.exists?(schedule_file) && Sidekiq.server?
+    Sidekiq::Cron::Job.load_from_hash! YAML.load_file(schedule_file)
+  end
+
 end
 
-def configure_server(redis)
-  Sidekiq.configure_server do |config|
-    config.redis = { :url => REDIS_URL, :namespace => 'sidekiq' }
-    configure_cron
-  end
+Sidekiq.configure_client do |config|
+  config.redis = { url: redis_url, network_timeout: 5 }
+
 end
 
-if Rails.env == 'production'
-  # For production, run server configs
-  configure_server(redis)
-else
-  # For local, just start up the cron service
-  configure_cron
-end
+#Sidekiq.logger.formatter = Sidekiq::Logging::Json::Logger.new
