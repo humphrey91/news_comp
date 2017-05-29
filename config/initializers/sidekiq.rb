@@ -9,7 +9,7 @@ end
 
 def configure_server(redis)
   Sidekiq.configure_server do |config|
-    config.redis = { :url => redis, :namespace => 'sidekiq' }
+    config.redis = { :url => REDIS_URL, :namespace => 'sidekiq' }
     configure_cron
   end
 end
