@@ -36,4 +36,6 @@ class ScreenshotWorker
   def resize_img
     system "convert screenshot.png -quality 40 screenshot.jpg"
   end
+
+  ScreenshotWorker.new.perform
 end
