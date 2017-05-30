@@ -17,11 +17,12 @@ class Screenshot < ApplicationRecord
         end
       end
     else
+      qry = []
       doms = Domain.all
       doms.each do |d|
         qry += Screenshot.created_desc.where({domain_id: d.id})
       end
-      @screenshots = qry.reverse
+      @screenshots = qry
     end
   end
 end
