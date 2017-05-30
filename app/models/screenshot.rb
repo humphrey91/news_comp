@@ -20,7 +20,7 @@ class Screenshot < ApplicationRecord
       qry = []
       doms = Domain.all
       doms.each do |d|
-        qry += Screenshot.created_desc.where({domain_id: d.id})
+        qry += Screenshot.created_desc.where({domain_id: d.id}).limit(1)
       end
       @screenshots = qry
     end
