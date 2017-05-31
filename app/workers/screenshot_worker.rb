@@ -1,4 +1,7 @@
-class ScreenshotWorker
+require 'sidekiq'
+
+class ScreenshotWorker < ActiveJob::Base
+
   include Sidekiq::Worker
 
   def perform
@@ -37,5 +40,5 @@ class ScreenshotWorker
     system "convert screenshot.png -quality 40 screenshot.jpg"
   end
 
-  
+
 end
