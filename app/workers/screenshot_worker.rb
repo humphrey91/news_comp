@@ -13,7 +13,7 @@ class ScreenshotWorker
     #   rename_file(domain)
     #   upload_shot(domain)
     #   clean_up(domain)
-    end
+    # end
 
   end
 
