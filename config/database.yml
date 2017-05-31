@@ -1,10 +1,15 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
 default: &default
   adapter: postgresql
   pool: 5
   timeout: 5000
   host: localhost
-  username: admin
-  password: admin
+  
 
 development:
   <<: *default
@@ -18,10 +23,5 @@ test:
   database: newscomp_test
 
 production:
-  adapter: postgresql
-  pool: 5
-  timeout: 5000
-  host: ec2-54-235-120-39.compute-1.amazonaws.com
-  usaername: rqveagfuydxkmm
-  password: secret_key_base
+  <<: *default
   database: newscomp_prod
