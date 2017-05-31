@@ -1,7 +1,7 @@
 
 
 Screenshot_job:
-  cron: "1 0 * * *"
+  cron: "* * * * *"
   class: "ScreenshotWorker"
   active_job: true
   queue: default
