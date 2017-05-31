@@ -8,7 +8,9 @@ default: &default
   adapter: postgresql
   pool: 5
   timeout: 5000
-
+  host: *
+  username: admin
+  password: admin
 
 development:
   <<: *default
@@ -23,6 +25,4 @@ test:
 
 production:
   <<: *default
-  username: rqveagfuydxkmm
-  password: <%= ENV['PG_DB_KEY'] %>
-  database: d38skoo3nv7djq
+  database: newscomp_prod
