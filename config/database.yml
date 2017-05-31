@@ -9,8 +9,8 @@ default: &default
   pool: 25
   timeout: 5000
   host: localhost
-  username: admin
-  password: admin
+  username:
+  password: 
 
 development:
   <<: *default
