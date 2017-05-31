@@ -5,15 +5,14 @@ class ScreenshotWorker
   include Sidekiq::Worker
 
   def perform
-    puts "hello"
-    # domains = Domain.all
-    # domains.each do |domain|
-    #   take_screenshot(domain)
-    #   resize_img
-    #   rename_file(domain)
-    #   upload_shot(domain)
-    #   clean_up(domain)
-    # end
+    domains = Domain.all
+    domains.each do |domain|
+      take_screenshot(domain)
+      resize_img
+      rename_file(domain)
+      upload_shot(domain)
+      clean_up(domain)
+    end
 
   end
 
