@@ -1,6 +1,6 @@
 require 'sidekiq'
 
-class ScreenshotWorker < ActiveJob::Base
+class ScreenshotWorker
 
   include Sidekiq::Worker
 
