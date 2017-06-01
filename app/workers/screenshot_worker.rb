@@ -48,6 +48,6 @@ class WakeupWorker
   include Sidekiq::Worker
   def perform
     system "google-chrome-beta --no-sandbox --screenshot --hide-scrollbars --window-size=412,732 http://www.frontpagespin.com"
-    rm screenshot.png
+    system "rm screenshot.png"
   end
 end
