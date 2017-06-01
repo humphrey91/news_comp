@@ -5,3 +5,9 @@ Screenshot_job:
   class: "ScreenshotWorker"
   active_job: true
   queue: default
+
+Wakeup_job:
+  cron: "*/20 * * * *"
+  class: "WakeupWorker"
+  active_job: true
+  queue: default

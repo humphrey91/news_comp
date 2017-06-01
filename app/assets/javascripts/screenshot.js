@@ -15,9 +15,4 @@ $(document).ready(function(){
     width: "650px"
 
   });
-
-  var http = require("http");
-  setInterval(function() {
-    http.get("http://www.frontpagespin.com");
-  }, 300000); // every 5 minutes (300000)
 });
