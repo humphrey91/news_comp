@@ -14,7 +14,7 @@ class ScreenshotController < ApplicationController
       @doms = params[:screenshot][:domain_names]
     end
   end
-
+ 
   def search_params
     params.permit(:screenshot => [:date, :domain_names => []])
   end
